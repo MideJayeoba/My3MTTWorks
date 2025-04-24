@@ -4,16 +4,123 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mide Acoustics</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .hero {
+            background-image: url('img/placeholder2.png');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        .cta-button {
+            background-color: #ff5733;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+        form input, form textarea {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .features {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .feature {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        footer {
+          text-align: center; 
+          padding: 20px; 
+          background-color: #333; 
+          color: white; 
+          position: relative; 
+          bottom: 0; 
+          width: 100%;
+      }
+      footer a {
+          color: #ff5733; 
+          text-decoration: none; 
+      }
+
+      @media screen and (max-width: 768px) {
+          .features {
+              flex-direction: column;
+              align-items: center;
+          }
+          .feature {
+              margin-bottom: 20px;
+              width: 80%;
+          }
+        
+      }
+    </style>
 </head>
+<body>
+    <div class="hero">
+      <h1>Welcome to Mide Acoustics</h1>
+      <p>Experience the best sound quality with our premium acoustic solutions.</p>
+      <a href="#contact" class="cta-button">Get Started</a>
+  </div>
 
+  <form action="mailto:midejayeoba1@gmail.com" method="post" enctype="text/plain">
+    Message
+    <input type="text" name="name" placeholder="Your Name" required>
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+  </form>
 
-        <form action="mailto:midejayeoba1@gmail.com" method="post" enctype="text/plain"></form>
-          <button type="submit">Send Message</button>
-        </form>
+  <div class="features">
+      <div class="feature">
+          <img src="feature1.png" alt="Feature 1">
+          <h3>Crystal Clear Sound</h3>
+          <p>Enjoy unmatched sound clarity with our state-of-the-art technology.</p>
+      </div>
+      <div class="feature">
+          <img src="feature2.png" alt="Feature 2">
+          <h3>Durable Design</h3>
+          <p>Our products are built to last, ensuring long-term reliability.</p>
+      </div>
+      <div class="feature">
+          <img src="feature3.png" alt="Feature 3">
+          <h3>Affordable Pricing</h3>
+          <p>Get premium quality at prices that fit your budget.</p>
+      </div>
+  </div>
+
  
 </body>
 <footer>
-    <p>&copy; 2025 Mide Jayeoba. All rights reserved.</p>
-</footer>
+    <p>&copy; 2025 Mide Jayeoba. All rights reserved. <a href="mailto:midejayeoba1@gmail.com">Email me: mide jayeoba</a></p>
+    <p><a href="tel:+2349067333517">Call me</a></p>
+    <p><a href="https://www.linkedin.com/in/mide-jayeoba-1b0b4a1b8/">LinkedIn</a></p>
+  </footer>
 </html>
