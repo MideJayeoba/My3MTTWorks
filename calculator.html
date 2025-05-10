@@ -1,0 +1,114 @@
+<!-- building a calculator app using html, css and javascript -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator app</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        button {
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            font-size: 20px;
+        }
+        #calculator {
+            display: flex;
+            flex-wrap: wrap;
+            width: 220px;
+        }
+    </style>
+ </head>
+ <body>
+    <h1>Simple Calculator</h1>
+    <div id="display" style="border: 1px solid #000; padding: 10px; width: 200px; height: 30px; text-align: right; background-color: #f0f0f0;">0</div>
+    <form id="calculator">
+        <!-- create button for all numbers and operations -->
+        <button type="button" id="1" value="1">1</button>
+        <button type="button" id="2" value="2">2</button>
+        <button type="button" id="3" value="3">3</button>
+        <button type="button" id="4" value="4">4</button>
+        <button type="button" id="5" value="5">5</button>
+        <button type="button" id="6" value="6">6</button>
+        <button type="button" id="7" value="7">7</button>
+        <button type="button" id="8" value="8">8</button>
+        <button type="button" id="9" value="9">9</button>
+        <button type="button" id="0" value="0">0</button>
+        <button type="button" id="+" value="+">+</button>
+        <button type="button" id="-" value="-">-</button>
+        <button type="button" id="*" value="*">*</button>
+        <button type="button" id="/" value="/">/</button>
+        <button type="button" id="C" value="C">C</button>
+        <button type="submit" id="=" value="=">=</button>
+        <div id="result" style="border: 1px solid #000; padding: 10px; width: 100px; height: 20px; text-align: right; background-color: #f0f0f0;">0</div>
+    </form>
+    
+    <script>
+        const display = document.getElementById('display');
+        const result = document.getElementById('result');
+        let currentInput = '';
+        let operator = '';
+        let firstOperand = null;
+        let secondOperand = null;
+        let total = null;
+
+        const buttons = document.querySelectorAll('button');
+        buttons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const value = e.target.value;
+                if (value >= '0' && value <= '9') {
+                    currentInput += value;
+                    display.innerText = currentInput;
+                } else if (value === 'C') {
+                    currentInput = '';
+                    operator = '';
+                    firstOperand = null;
+                    secondOperand = null;
+                    display.innerText = '0';
+                    result.innerText = '0';
+                } else if (['+', '-', '*', '/'].includes(value)) {
+                    operator = value;
+                    currentInput += value;
+                    display.innerText = currentInput;
+                }
+                if (value === '=') {
+                    let resultValue = 0;
+                    total = currentInput.split(operator);
+                    firstOperand = parseInt(total[0]);
+                    secondOperand = parseInt(total[1]);
+                    switch (operator) {
+                        case '+':
+                            resultValue = firstOperand + secondOperand;
+                            break;
+                        case '-':
+                            resultValue = firstOperand - secondOperand;
+                            break;
+                        case '*':
+                            resultValue = firstOperand * secondOperand;
+                            break;
+                        case '/':
+                            resultValue = firstOperand / secondOperand;
+                            break;
+                        default:
+                            return ;
+                    }
+                    result.innerText = resultValue;
+                } 
+            });
+        });
+    </script>
+</body>
+</html>
+
